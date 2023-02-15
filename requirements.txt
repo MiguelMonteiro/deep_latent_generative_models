@@ -1,0 +1,16 @@
+pytorch-lightning
+torch
+torchvision
+jax
+jaxlib
+optax
+tensorflow
+tensorflow-datasets
+tqdm
+torchmetrics
+numpy
+pytest
+scikit-learn
+ipykernel
+matplotlib
+flax
