@@ -1,0 +1,44 @@
+{
+    "name": "ML Basics",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "target": "base"
+    },
+    "settings": {
+        // This is the venv path set in the Dockerfile
+        "python.defaultInterpreterPath": "/opt/venv/bin/python",
+        "python.languageServer": "Pylance",
+        "python.analysis.typeCheckingMode": "basic",
+        "python.formatting.provider": "black",
+        "black-formatter.args": [
+            "--experimental-string-processing"
+        ],
+        "editor.formatOnSave": true,
+        "rust-analyzer.checkOnSave.command": "clippy",
+        "[python]": {
+            "editor.rulers": [
+                88
+            ]
+        }
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "github.copilot",
+        "github.vscode-pull-request-github",
+        "njpwerner.autodocstring",
+        "mutantdino.resourcemonitor",
+        "MS-vsliveshare.vsliveshare"
+    ],
+    "features": {
+        "github-cli": "latest"
+    },
+    // prepend the venv to $PATH, removing the need for source /opt/venv/bin/activate
+    "remoteEnv": {
+        "PATH": "/opt/venv/bin:${containerEnv:PATH}"
+    },
+    "containerUser": "vscode",
+    "shutdownAction": "none" // don't stop container on exit
+}
